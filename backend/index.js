@@ -13,7 +13,7 @@ config.authenticate().then(() => {
 //Get all items
 app.get('/items', function(req, res){
     Item.findAll().then((results) => {
-        res.status(200).send(result);
+        res.status(200).send(results);
     }).catch((err) => {
         res.status(500).send(err);
     });
