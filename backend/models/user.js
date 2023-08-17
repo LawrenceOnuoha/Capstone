@@ -1,29 +1,29 @@
 const Sequelize = require('sequelize');
 const config = require('./../config');
 
-const Item = config.define('item', {
+const User = config.define('user', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    title: {
+    first_name: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    donation: {
+    last_name: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    condition: {
+    number: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    description: {
+    email: {
         type: Sequelize.STRING,
         allowNull: false
     },
 }, {timestamps: false});
 
-module.exports = Item;
+module.exports = User;

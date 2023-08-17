@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const config = require('./config');
 const Item = require('./models/item');
+const User = require('./models/user');
 
 //Test MariaDb connection
 config.authenticate().then(() => {
@@ -10,9 +11,18 @@ config.authenticate().then(() => {
     console.log(err);
 });
 
-//Get all items
+//Get all items 
 app.get('/items', function(req, res){
     Item.findAll().then((results) => {
+        res.status(200).send(results);
+    }).catch((err) => {
+        res.status(500).send(err);
+    });
+});
+
+//Get all users 
+app.get('/users', function(req, res){
+    User.findAll().then((results) => {
         res.status(200).send(results);
     }).catch((err) => {
         res.status(500).send(err);
